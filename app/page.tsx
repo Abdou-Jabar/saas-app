@@ -1,12 +1,43 @@
-import { Button } from '@/components/ui/button'
-import React from 'react'
+import CompanionCard from '@/components/CompanionCard';
+import CompanionList from '@/components/CompanionList';
+import CTA from '@/components/CTA';
+import { Button } from '@/components/ui/button';
 
 const Page = () => {
   return (
-    <div>
-      <p className="text-2xl"></p>
-      <Button>Let started</Button>
-    </div>
+    <main>
+      <p>Popular Companion</p>
+      <section className="home-section">
+        <CompanionCard
+          id="123"
+          name="Neura the Brain Explorer"
+          topic="Neural Network of the brain"
+          duration={45}
+          subject="Science"
+          color="#ffda6e"
+        />
+        <CompanionCard
+          id="456"
+          name="Countsy the number wizard"
+          topic="Derivatives & Integrals"
+          duration={30}
+          subject="Maths"
+          color="#e5d0ff"
+        />
+        <CompanionCard
+          id="789"
+          name="Neura the Brain Explorer"
+          topic="Neural Network of the brain"
+          subject="Langage"
+          duration={45}
+          color="#bde7ff"
+        />
+      </section>
+      <section className="home-section">
+        <CompanionList />
+        <CTA />
+      </section>
+    </main>
   )
 }
 
