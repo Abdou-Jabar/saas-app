@@ -1,11 +1,7 @@
 import React from 'react'
 
 const CompanoiosLibrary = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+  return <div></div>
 }
 
 export default CompanoiosLibrary

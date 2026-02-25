@@ -4,7 +4,7 @@ import React from 'react'
 const Page = () => {
   return (
     <div>
-      <p className='text-2xl'></p>
+      <p className="text-2xl"></p>
       <Button>Let started</Button>
     </div>
   )
