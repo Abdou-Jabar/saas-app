@@ -1,6 +1,9 @@
+import { PricingTable } from "@clerk/nextjs"
+
 const Subscription = () => {
-  const alo = ''
-  return <div></div>
+  return <main>
+    <PricingTable />
+  </main>
 }
 
 export default Subscription

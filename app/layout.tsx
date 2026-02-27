@@ -1,5 +1,12 @@
 import type { Metadata } from 'next'
 import { Bricolage_Grotesque } from 'next/font/google'
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 import './globals.css'
 import NavBar from '@/components/NavBar'
 
@@ -19,14 +26,28 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${bricolage.variable} antialiased`}
-        suppressHydrationWarning
-      >
-        <NavBar />
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${bricolage.variable} antialiased`}
+          suppressHydrationWarning
+        >
+          <header className="flex justify-between items-center p-4">
+            <NavBar />
+            <div className="flex gap-4">
+              <SignedOut>
+                  <SignInButton>
+                    <button className='btn-signin'>SignIn</button>
+                  </SignInButton>
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+            </div>
+          </header>
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
