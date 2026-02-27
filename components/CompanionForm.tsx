@@ -4,15 +4,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, Controller } from 'react-hook-form'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import {
   Select,
@@ -24,21 +15,15 @@ import {
 
 import {
   Field,
-  FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
 } from "@/components/ui/field"
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroupTextarea,
-} from "@/components/ui/input-group"
 import { subjects } from '@/constants'
 import { Textarea } from '@/components/ui/textarea'
 //import { createCompanion } from '@/lib/actions/companion.actions'
 import { redirect } from 'next/navigation'
+import { createCompanion } from '@/lib/actions/companion.actions'
 
 const formSchema = z.object({
   name: z.string().min(1, { message: 'Companion is Required' }),
@@ -62,16 +47,13 @@ const CompanionForm = () => {
     },
   })
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    /*const companion = await createCompanion(values)
-
-    if (companion) {
+    const companion = await createCompanion(values);
+    if(companion){
       redirect(`/companions/${companion.id}`)
-    } else {
-      console.log('Failed to create a companion')
-      redirect('/')
-    }*/
-
-    console.log(JSON.stringify(values))
+    }
+    else {
+      redirect("/")
+    }
   }
   return (
     <form id="form-rhf-demo" onSubmit={form.handleSubmit(onSubmit)}>

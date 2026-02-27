@@ -1,3 +1,4 @@
+"use server"
 import { auth } from '@clerk/nextjs/server';
 import { createSupabaseClient } from '../supabase';
 export const createCompanion = async (FormData: CreateCompanion) => {
@@ -7,6 +8,6 @@ export const createCompanion = async (FormData: CreateCompanion) => {
     .from("companions")
     .insert({...FormData, author})
     .select();
-  if(!error || !data) throw new Error(error?.message || "Failed to create a companion");
+  if(error || !data) throw new Error(error?.message || "Failed to create a companion");
   return data[0];
 }
