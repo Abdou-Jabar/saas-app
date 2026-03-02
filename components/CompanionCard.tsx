@@ -13,7 +13,7 @@ const CompanionCard = ({id, name, topic, duration, subject, color}:  CompanionCa
   return (
     <article className={`companion-card`} style={{backgroundColor: color}}>
       <div className="flex items-center justify-between">
-        <div className="subect-badge">
+        <div className="subject-badge">
           {subject}
         </div>
         <button className="companion-bookmark">
